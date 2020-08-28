@@ -7,8 +7,8 @@ let app = express();
 /* bodyParser.urlencoded({}) codifica a URL (transfora em URI) para conseguirmos
     retornar um arquivo JSON (bodyParser.json()) e manipularmos da forma que quisermos.
 */
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false, limit: '50mb'}));
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(expressValidator());
 
 // Modulo Consign importa todas as rotas da pasta "routes" e inclui  a variável app dentro de cada rota
